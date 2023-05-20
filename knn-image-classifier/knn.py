@@ -29,7 +29,7 @@ imagePaths = list(paths.list_images(args["dataset"]))
 # and reshape the data matrix
 sp = SimplePreprocessor(32, 32)
 sdl = SimpleDatasetLoader(preprocessors=[sp])
-(data, lables) = sdl.load(imagePaths, verbose=500)
+(data, labels) = sdl.load(imagePaths, verbose=500)
 data = data.reshape(data.shape[0], 3072)
 
 # show some information on memory consumption of the images
@@ -38,7 +38,7 @@ print("[INFO] features matrix: {:.1f}MB".format(
 
 # encode the labels as integers
 le = LabelEncoder()
-lables = le.fit_transform(lables)
+labels = le.fit_transform(labels)
 
 # partition the data into training and testing splits using 75% of
 # the data for training and the remaining 25% for testing
