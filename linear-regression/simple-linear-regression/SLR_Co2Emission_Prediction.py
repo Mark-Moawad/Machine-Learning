@@ -4,7 +4,7 @@ import pandas as pd
 from sklearn import linear_model
 from sklearn.metrics import r2_score
 
-df = pd.read_csv("FuelConsumptionCo2.csv")
+df = pd.read_csv("../FuelConsumptionCo2.csv")
 
 # Print a glimpse of the data
 print(df.head())
@@ -19,12 +19,12 @@ viz = cdf[['CYLINDERS', 'ENGINESIZE', 'CO2EMISSIONS', 'FUELCONSUMPTION_COMB']]
 viz.hist()
 plt.figure()
 
-plt.scatter(cdf.FUELCONSUMPTION_COMB, cdf.CO2EMISSIONS,  color='blue')
+plt.scatter(cdf.FUELCONSUMPTION_COMB, cdf.CO2EMISSIONS, color='blue')
 plt.xlabel("FUELCONSUMPTION_COMB")
 plt.ylabel("Emission")
 plt.figure()
 
-plt.scatter(cdf.ENGINESIZE, cdf.CO2EMISSIONS,  color='blue')
+plt.scatter(cdf.ENGINESIZE, cdf.CO2EMISSIONS, color='blue')
 plt.xlabel("Engine size")
 plt.ylabel("Emission")
 plt.figure()
@@ -35,15 +35,14 @@ plt.ylabel("Co2 Emission")
 plt.figure()
 
 # Create a mask to select random rows, split dataset into 80% training set and 20% testing set
-msk = np.random.rand(len(df)) < 0.8
+msk = np.random.rand(len(cdf)) < 0.8
 train = cdf[msk]
 test = cdf[~msk]
 
-plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS,  color='blue')
+plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS, color='blue')
 plt.xlabel("Engine size")
 plt.ylabel("Emission")
 plt.figure()
-
 
 regr = linear_model.LinearRegression()
 train_x = np.asanyarray(train[['ENGINESIZE']])
@@ -53,8 +52,8 @@ regr.fit(train_x, train_y)
 print('Coefficients: ', regr.coef_)
 print('Intercept: ', regr.intercept_)
 
-plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS,  color='blue')
-plt.plot(train_x, regr.coef_[0][0]*train_x + regr.intercept_[0], '-r')
+plt.scatter(train.ENGINESIZE, train.CO2EMISSIONS, color='blue')
+plt.plot(train_x, regr.coef_[0][0] * train_x + regr.intercept_[0], '-r')
 plt.xlabel("Engine size")
 plt.ylabel("Emission")
 plt.show()
