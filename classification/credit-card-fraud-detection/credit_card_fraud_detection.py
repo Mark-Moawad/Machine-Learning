@@ -201,7 +201,7 @@ print('[Support Vector Machine] Snap ML vs. Scikit-Learn training speedup : {0:.
 sklearn_pred = sklearn_svm.decision_function(X_test)
 
 # evaluate accuracy on test set
-acc_sklearn  = roc_auc_score(y_test, sklearn_pred)
+acc_sklearn = roc_auc_score(y_test, sklearn_pred)
 print("[Scikit-Learn] ROC-AUC score:   {0:.3f}".format(acc_sklearn))
 
 # run inference using the Snap ML model
@@ -209,7 +209,7 @@ print("[Scikit-Learn] ROC-AUC score:   {0:.3f}".format(acc_sklearn))
 snapml_pred = snapml_svm.decision_function(X_test)
 
 # evaluate accuracy on test set
-acc_snapml  = roc_auc_score(y_test, snapml_pred)
+acc_snapml = roc_auc_score(y_test, snapml_pred)
 print("[Snap ML] ROC-AUC score:   {0:.3f}".format(acc_snapml))
 
 # Evaluate the hinge loss on the test set
