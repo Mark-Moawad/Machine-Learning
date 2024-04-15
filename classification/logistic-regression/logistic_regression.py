@@ -23,18 +23,16 @@ monthly charges, and total charges
 - Demographic info about customers – gender, age range, and if they have partners and dependents
 """
 
-import pandas as pd
-import pylab as pl
-import numpy as np
-import scipy.optimize as opt
-from sklearn import preprocessing
+import itertools
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
+import numpy as np
+import pandas as pd
+from sklearn import preprocessing
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report, confusion_matrix
-import itertools
 from sklearn.metrics import jaccard_score
 from sklearn.metrics import log_loss
+from sklearn.model_selection import train_test_split
 
 # Dataset Analysis
 # Importing Data
